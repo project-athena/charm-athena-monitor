@@ -1,0 +1,36 @@
+# Copyright 2021 Felipe
+# See LICENSE file for licensing details.
+name: athena-core-monitor
+description: |
+  athena-core is a simple file processor with 2 main components: a monitor
+  that polls a source (e.g. a sftp endpoint) and submits an event in nats to
+  be consumed by a processor.
+summary: |
+  athena-core monitor charm
+
+series:
+  - bionic
+  - focal
+
+resources:
+  core:
+    type: file
+    filename: core.snap
+    description: core snap
+  athena-core:
+    type: file
+    filename: athena-core.snap
+    description: athena-core snap to install
+
+storage:
+  data:
+    type: filesystem
+    description: athena-core processing storage
+    shared: false # not yet supported
+    read-only: false # not yet supported
+    minimum-size: 1G
+    location: /var/snap/athena-core/common/data
+
+requires:
+  nats:
+    interface: nats

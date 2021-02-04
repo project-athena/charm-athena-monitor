@@ -1,0 +1,9 @@
+options:
+  config-content:
+    default: ""
+    description: athena-core monitor configuration
+    type: string
+  snap-channel:
+    type: string
+    default: latest/stable
+    description: Snap Store channel to install the athena-core snap from

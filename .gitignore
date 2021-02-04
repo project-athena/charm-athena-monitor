@@ -1,0 +1,7 @@
+.coverage
+*.py[co]
+__pycache__
+.tox
+.stestr
+build
+*.charm
